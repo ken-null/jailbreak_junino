@@ -68,3 +68,11 @@ Ao rodar o sistema e abrir a página no navegador, insira as chaves corresponden
 Escolha o nível desejado e boa sorte aos prisioneiros!
 
 Desenvolvido com 💛 (e muito milho) pelo grupo Iris DataScience - Unicamp.
+
+
+## ⚠️ Aviso Legal e Isenção de Responsabilidade (Disclaimer)
+Este projeto tem fins **estritamente educacionais, recreativos e de pesquisa**, desenvolvido pelo grupo Iris DataScience para um evento junino. 
+
+* **Responsabilidade do Usuário:** Todos os *prompts* inseridos na aplicação são de inteira responsabilidade dos participantes do evento. O grupo Iris não armazena, não endossa e não se responsabiliza por conteúdos gerados que sejam ofensivos, antiéticos ou que violem os Termos de Serviço da OpenAI e da DeepSeek.
+* **Intenção:** O objetivo dos testes de *jailbreak* neste ambiente controlado é demonstrar as vulnerabilidades e os desafios de segurança e alinhamento (*AI Safety*) dos Modelos de Linguagem de Grande Escala (LLMs). As diretrizes quebradas são lúdicas (ex: receitas de quentão) e não envolvem atividades ilegais reais.
+* **Isenção Institucional:** Este projeto é uma iniciativa estudantil e suas interações ou resultados não refletem o posicionamento oficial da Unicamp, do Instituto de Computação (IC), da AAACEC ou do CACo.
