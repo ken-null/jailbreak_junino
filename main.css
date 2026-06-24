@@ -96,12 +96,12 @@ div[role="radiogroup"] {
 div[role="radiogroup"] p {
   color: black !important;
 }
-
-/* OpenAI input */
+/* ===== OPENAI INPUT COM CURSOR PISCANTE ===== */
 .st-key-InputOpenai .stTextInput > [data-testid="stTextInputRootElement"] {
   background: #fffdf6 !important;
   border: 3px solid #8b4513;
   border-radius: 10px;
+  transition: all 0.3s ease;
 }
 
 .st-key-InputOpenai .stTextInput > [data-testid="stTextInputRootElement"] > div {
@@ -111,6 +111,24 @@ div[role="radiogroup"] p {
 .st-key-InputOpenai .stTextInput > [data-testid="stTextInputRootElement"] > div > input,
 .st-key-InputOpenai .stTextInput > [data-testid="stTextInputRootElement"] > div > button {
   color: #22150a !important;
+}
+
+/* Quando o campo é selecionado (focado) */
+.st-key-InputOpenai .stTextInput > [data-testid="stTextInputRootElement"]:focus-within {
+  border-color: #ff9900 !important;
+  box-shadow: 0 0 10px rgba(255, 153, 0, 0.5) !important;
+}
+
+.st-key-InputOpenai .stTextInput input:focus {
+  /* Força a cor do cursor nativo (barrinha vertical) a ser marrom escuro e piscar */
+  caret-color: #5d2e0d !important;
+  animation: pisca-cursor 1s infinite;
+}
+
+/* Animação para garantir o efeito visual de pulsação do foco */
+@keyframes pisca-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
 }
 
 /* ===== CHAT ===== */
