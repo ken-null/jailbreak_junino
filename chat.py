@@ -83,7 +83,7 @@ with st.sidebar:
             </style>
             </head>
             <body>
-                <div id="relogio">⏳ Calculando...</div>
+                <div id="relogio" class="relogio">⏳ Calculando...</div>
                 <script>
                     var countDownDate = {st.session_state.fim_do_tempo} * 1000;
                     var x = setInterval(function() {{

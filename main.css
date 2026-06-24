@@ -106,4 +106,5 @@ div[role="radiogroup"] p {
   border-radius: 8px;
   border: 2px solid #d2691e;
   text-align: center;
+  width: 100%;
 }
