@@ -3,54 +3,22 @@ import streamlit.components.v1 as components
 import time
 from openai import OpenAI
 
+
+def local_css(file: str):
+    with open(file) as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
+
+# Load main css
+local_css("main.css")
+
 # CONFIGURAÇÃO DA PÁGINA E TEMA JUNINO
 st.set_page_config(page_title="Cadeia do Jailbreak", page_icon="🌽", layout="centered")
 
-# CSS de Arraiá / Cadeia
-st.markdown("""
-    <style>
-    .stApp {
-        background-color: #fcecd4; /* Cor de palha/fundo quente */
-    }
-            
-    /* FORÇA A COR DO TEXTO A FICAR ESCURA INDEPENDENTE DO MODO DO PC */
-    .stMarkdown p, .stChatMessage p {
-        color: #2b1d0e !important; 
-        font-size: 16px;
-    }
-
-    h1, h2, h3 {
-        color: #8b4513; /* Marrom madeira */
-        font-family: 'Courier New', Courier, monospace;
-        text-align: center;
-    }
-    .stChatMessage {
-        background-color: #ffffff;
-        border: 2px solid #d2691e;
-        border-radius: 10px;
-        padding: 10px;
-    }
-    [data-testid="stSidebar"] {
-        background-color: #e6c280;
-        border-right: 3px dashed #8b4513;
-    }
-            
-    /* Mantém o título da cadeia com letras brancas no fundo escuro */
-    .titulo-cadeia {
-        background-color: #8b4513;
-        padding: 15px;
-        border-radius: 10px;
-        text-align: center;
-        border: 3px dashed #ff9900;
-        margin-bottom: 20px;
-    }
-    .titulo-cadeia h1, .titulo-cadeia p {
-        color: #ffffff !important; 
-    }
-    </style>
-""", unsafe_allow_html=True)
-
-st.markdown('<div class="titulo-cadeia"><h1>🔥 JAILBREAK JUNINO 🔥</h1><p>Fugir da prisão nunca foi tão tecnológico, sô!</p></div>', unsafe_allow_html=True)
+st.markdown(
+    '<div class="titulo-cadeia"><h1>🔥 JAILBREAK JUNINO 🔥</h1><p>Fugir da prisão nunca foi tão tecnológico, sô!</p></div>',
+    unsafe_allow_html=True,
+)
 
 # CONFIGURAÇÕES DOS NÍVEIS E MODELOS
 # Definição das regras de cada nível
@@ -106,7 +74,7 @@ with st.sidebar:
             <head>
             <style>
                 body {{
-                    background-color: transparent; 
+                    background-color: transparent;
                     margin: 0; display: flex; align-items: center; height: 70px;
                 }}
                 #relogio {{
@@ -151,7 +119,9 @@ with st.sidebar:
     api_key_openai = st.text_input("OpenAI API Key:", type="password")
     
     if st.button("🧹 Limpar Chat"):
-        st.session_state.messages = [{"role": "system", "content": config_atual["system_prompt"]}]        
+        st.session_state.messages = [
+            {"role": "system", "content": config_atual["system_prompt"]}
+        ]
         st.session_state.timer_ativo = False
         st.session_state.fim_do_tempo = 0
         if "pending_prompt" in st.session_state:
@@ -208,7 +178,7 @@ if prompt_to_process:
             resposta_stream = client.chat.completions.create(
                 model=config_atual["modelo"],
                 messages=st.session_state.messages,
-                stream=True
+                stream=True,
             )
             resposta_completa = st.write_stream(resposta_stream) #Efeito de digitação
             st.session_state.messages.append({"role": "assistant", "content": resposta_completa})
