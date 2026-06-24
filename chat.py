@@ -68,6 +68,7 @@ with st.sidebar:
     with timer_placeholder:
         if st.session_state.timer_ativo:
             # HTML injetado com fundo transparente para casar com a sidebar
+            # Adicionamos o CSS do relógio diretamente AQUI dentro, pois iframes não leem o main.css
             js_timer = f"""
             <!DOCTYPE html>
             <html>
@@ -77,10 +78,23 @@ with st.sidebar:
                     background-color: transparent;
                     margin: 0; display: flex; align-items: center; height: 70px;
                 }}
+                #relogio {{
+                    font-family: "Courier New", Courier, monospace;
+                    font-size: 18px;
+                    font-weight: bold;
+                    color: #8b4513;
+                    background-color: #fcecd4;
+                    padding: 6px;
+                    border-radius: 8px;
+                    border: 2px solid #d2691e;
+                    text-align: center;
+                    width: 100%;
+                    box-sizing: border-box;
+                }}
             </style>
             </head>
             <body>
-                <div id="relogio" class="relogio">⏳ Calculando...</div>
+                <div id="relogio">⏳ Calculando...</div>
                 <script>
                     var countDownDate = {st.session_state.fim_do_tempo} * 1000;
                     var x = setInterval(function() {{
@@ -94,6 +108,7 @@ with st.sidebar:
                             document.getElementById("relogio").innerHTML = "🚨 00:00";
                             document.getElementById("relogio").style.color = "#ff0000";
                             document.getElementById("relogio").style.borderColor = "#ff0000";
+                            document.getElementById("relogio").style.backgroundColor = "#ffe6e6";
                         }} else {{
                             seconds = seconds < 10 ? "0" + seconds : seconds;
                             document.getElementById("relogio").innerHTML = "⏳ " + minutes + ":" + seconds;
