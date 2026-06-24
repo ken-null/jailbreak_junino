@@ -15,13 +15,13 @@
 h1,
 h2,
 h3 {
-  font-family: "Trebuchet MS", sans-serif;
+  font-family: "Trebuchet MS", "Courier New", Courier, monospace;
   color: #5d2e0d !important;
   font-weight: 900;
 }
 
 p {
-  font-family: "Trebuchet MS", sans-serif;
+  font-family: "Trebuchet MS", "Courier New", Courier, monospace;
 }
 
 /* FORÇA A COR DO TEXTO A FICAR ESCURA INDEPENDENTE DO MODO DO PC */
@@ -48,7 +48,7 @@ p {
 
 /* TOOD: Melhorar essas bandeirinhas para ficar mais parecido com bandeiras, pois estão lineares
 
-    /* Bandeirinhas no topo */
+Bandeirinhas no topo */
 .titulo-cadeia::before {
   content: "🔺🔵🟢🟡🔴 🔺🔵🟢🟡🔴";
   display: block;
@@ -85,6 +85,14 @@ div[role="radiogroup"] p {
   color: black !important;
 }
 
+/* OpenAI input */
+.st-key-InputOpenai .stTextInput > [data-testid="stTextInputRootElement"] {
+  background: #fffdf6;
+  color: #22150a !important;
+  border: 3px solid #8b4513;
+  border-radius: 10px;
+}
+
 /* ===== CHAT ===== */
 .stChatMessage {
   background: #fffdf6;
@@ -95,6 +103,29 @@ div[role="radiogroup"] p {
   box-shadow: 3px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Mensagem do usuário */
+.stChatMessage:has([data-testid="user-avatar"]) {
+  border-left-color: #1565c0;
+}
+
+/* ===== BOTÕES ===== */
+.stButton button {
+  background: linear-gradient(180deg, #ffb300, #e65100);
+  color: white !important;
+  font-weight: bold;
+  border-radius: 12px;
+  border: 3px solid #5d2e0d;
+  box-shadow: 0 4px 0 #5d2e0d;
+  transition: 0.2s;
+}
+
+.stButton button:hover {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #5d2e0d;
+  background: #ff6f00;
+}
+
+/* ===== RELOGIO ===== */
 .relogio {
   margin-top: 15px;
   font-family: "Courier New", Courier, monospace;
